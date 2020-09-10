@@ -40,10 +40,9 @@ rescale <- function(x, a = 0, b = 1, na.rm = T) ((b-a)*(x - min(x, na.rm = na.rm
 #' pvl(c(0.0000003, 0.06), 2) # returns "<0.01" "0.06"
 #' @export
 pvl <- function(x, signif = 4) ifelse(abs(x) < 10^(0 - signif),
-                                      paste0("<0.", str_dup("0", signif - 1), 1),
-                                      str_remove(string = format(round(x, signif),
-                                                                 scientific = FALSE),
-                                                 pattern = "0+$"))
+                                      paste0("<0.", paste0(rep("0", signif - 1), collapse = ""), 1, collapse = ""),
+                                      sub(x = format(round(x, signif), scientific = FALSE),
+                                                 pattern = "0+$", replacement = ""))
 
 #' Turn kable output into a pretty kable output
 #'
