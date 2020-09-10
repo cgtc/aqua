@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# aqua
+# aqua - <ins>a</ins>ssay <ins>qua</ins>lification and validation tools
 
 <!-- badges: start -->
 
@@ -16,7 +16,7 @@ and reporting.
 You can install aqua. I hope. You’re on your own.
 
 ``` r
-devtools::install_github("dmarginean/aqua")
+devtools::install_github("dmarginean/aqua")    # fingers crossed
 ```
 
 ## Examples
@@ -32,8 +32,8 @@ sd.u(c(2,3,2)) # amazing
 ```
 
 `sd.u` produces a very unbiased standard deviation estimate. Makes every
-data look horrible. The sad but true reality. Uses a chi-distributed
-correction factor.
+small sample size data look horrible. The sad but true reality. Uses a
+chi-distributed correction factor.
 
 ``` r
 library(lme4)
