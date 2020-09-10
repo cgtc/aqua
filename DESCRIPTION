@@ -6,6 +6,16 @@ Author: Dragos Marginean <dragos.marginean@ct.catapult.org.uk>
 Maintainer: Dragos Marginean <dragos.marginean@ct.catapult.org.uk>
 Description: Tools that help with different assay qualification and
     validation project analysis and reporting.
+Depends:
+    R (>= 3.4),
+    magrittr
+Imports:
+    lme4,
+    dplyr,
+    knitr,
+    kableExtra
+Suggests:
+    tidyverse
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
