@@ -2,6 +2,7 @@
 #'
 #' @param x A vector containing proportion of positive samples
 #' @param d Log-Dilution factor difference, 1 for 1:10 dilutions
+#' @param log_dilution the log-dilution of the assay
 #' @export
 get_logTCID <- function(x, d = 1, log_dilution) {
   a = 0
@@ -70,6 +71,7 @@ get_TCID_CV <- function(x, d = 1, log_dilution, vol_inoculum, total) {
 #' @param vol_inoculum Volume Inoculum (in ml)
 #' @param total Number of technical replicates (samples for a given dilution)
 #' @param alpha Significance threshold (0.05 alpha corresponds to 95\% CI)
+#' @importFrom stats qnorm
 #' @export
 get_TCID_CI <- function(x, d = 1, log_dilution, vol_inoculum, total, alpha = 0.05) {
   low <- get_logTCID(x, d, log_dilution) + (qnorm(1-(alpha/2), 0, 1) * get_logTCID_SE(x, d, total))

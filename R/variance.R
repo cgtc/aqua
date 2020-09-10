@@ -10,6 +10,7 @@
 #' @export
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select
+#' @importFrom tidyr replace_na
 get_repeat <- function(model) {
   grandMean <- fixef(model)[[1]]
   varianceFactors <- as.data.frame(VarCorr(model))
@@ -80,6 +81,7 @@ get_intermed <- function(model) {
 #' @param x A vector of (normally-distributed) numbers
 #' @return The corrected/unbiased standard deviation of the input vector, based on a chi-distributed correction factor (c4)
 #' @export
+#' @importFrom stats sd
 #' @examples
 #' sd.u(rnorm(10, 0, 4))
 sd.u <- function(x) {

@@ -12,6 +12,8 @@ rescale(x, a = 0, b = 1, na.rm = T)
 \item{a}{New minimum for the scale (numeric)}
 
 \item{b}{New maximum for the scale (numeric)}
+
+\item{na.rm}{Whether to remove NAs or not (default = TRUE)}
 }
 \value{
 A stretched version of x that goes from a to b

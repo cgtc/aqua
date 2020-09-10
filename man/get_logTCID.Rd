@@ -10,6 +10,8 @@ get_logTCID(x, d = 1, log_dilution)
 \item{x}{A vector containing proportion of positive samples}
 
 \item{d}{Log-Dilution factor difference, 1 for 1:10 dilutions}
+
+\item{log_dilution}{the log-dilution of the assay}
 }
 \description{
 TCID50 Computing Functions - logTCID50

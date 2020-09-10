@@ -25,6 +25,7 @@ corr_structure <- function(object, num_timepoints, intercept_only = TRUE) {
 #' @param x A numerical vector
 #' @param a New minimum for the scale (numeric)
 #' @param b New maximum for the scale (numeric)
+#' @param na.rm Whether to remove NAs or not (default = TRUE)
 #' @return A stretched version of x that goes from a to b
 #' @examples
 #' rescale(1:10, 1, 100)

@@ -13,7 +13,10 @@ Imports:
     lme4,
     dplyr,
     knitr,
-    kableExtra
+    kableExtra,
+    Matrix,
+    stats,
+    tidyr
 Suggests:
     tidyverse
 License: GPL-2
