@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/dmarginean/aqua?branch=master&svg=true)](https://ci.appveyor.com/project/dmarginean/aqua)
 <!-- badges: end -->
 
 The (future, long term, eventual) goal of aqua is to provide tools that
