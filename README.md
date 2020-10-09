@@ -39,7 +39,6 @@ chi-distributed correction factor.
 
 ``` r
 library(lme4)
-#> Warning: package 'lme4' was built under R version 4.1.0
 #> Loading required package: Matrix
 
 funky_model <- lmer(total.fruits ~ 1 + (1|amd) + (1|status), data = Arabidopsis)
