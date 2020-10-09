@@ -27,7 +27,7 @@ devtools::install_github("dmarginean/aqua")    # fingers crossed
 library(aqua)
 #> Loading required package: magrittr
 
-sd(c(2,3,2))   # meh
+sd(c(2,3,2))   # boring
 #> [1] 0.5773503
 sd.u(c(2,3,2)) # amazing
 #> [1] 0.65147

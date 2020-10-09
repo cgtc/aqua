@@ -38,7 +38,7 @@ devtools::install_github("dmarginean/aqua")    # fingers crossed
 ```{r example}
 library(aqua)
 
-sd(c(2,3,2))   # meh
+sd(c(2,3,2))   # boring
 sd.u(c(2,3,2)) # amazing
 ```
 
