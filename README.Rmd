@@ -30,7 +30,7 @@ The (future, long term, eventual) goal of aqua is to provide tools that help wit
 You can install aqua. I hope. You're on your own.
 
 ``` r
-devtools::install_github("dmarginean/aqua")    # fingers crossed
+devtools::install_github("cgtc/aqua")    # fingers crossed
 ```
 
 ## Examples
@@ -38,7 +38,7 @@ devtools::install_github("dmarginean/aqua")    # fingers crossed
 ```{r example}
 library(aqua)
 
-sd(c(2,3,2))   # meh
+sd(c(2,3,2))   # boring
 sd.u(c(2,3,2)) # amazing
 ```
 

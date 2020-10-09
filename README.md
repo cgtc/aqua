@@ -18,7 +18,7 @@ and reporting.
 You can install aqua. I hope. You’re on your own.
 
 ``` r
-devtools::install_github("dmarginean/aqua")    # fingers crossed
+devtools::install_github("cgtc/aqua")    # fingers crossed
 ```
 
 ## Examples
@@ -27,7 +27,7 @@ devtools::install_github("dmarginean/aqua")    # fingers crossed
 library(aqua)
 #> Loading required package: magrittr
 
-sd(c(2,3,2))   # meh
+sd(c(2,3,2))   # boring
 #> [1] 0.5773503
 sd.u(c(2,3,2)) # amazing
 #> [1] 0.65147
