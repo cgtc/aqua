@@ -98,3 +98,19 @@ sd.u <- function(x) {
   if (length(x) <= 1) return(NA)
   return(sd(x, na.rm = T) / c4(length(x) - sum(is.na(x))))
 }
+
+#' Coefficient of Variation for Log-transformed Data
+#'
+#' A less known fact is that for log-transformed data you can't just take 100% * σ / μ and call it a day.
+#' This function implements the correct way of getting a CV when you apply it on log-transformed data.
+#' It does a method of moments based estimation of it, to check full maths and everything, read the paper published by Nelson W. in Applied Life Data Analysis. USA: John Wiley & Sons Inc; 2003.
+#'
+#' @param x A vector of log-normally distributed data
+#' @param na.rm Whether or not to ignore NAs
+#' @export
+#' @importFrom stats var
+#' @examples
+#' logCV(c(0.8, 0.9, 0.78))
+logCV <- function(x, na.rm = F) {
+  return(100 * sqrt(exp(log(10)^2 * var(x, na.rm = na.rm)) - 1))
+}
