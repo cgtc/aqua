@@ -6,8 +6,8 @@
 #' @export
 get_logTCID <- function(x, d = 1, log_dilution) {
   a = 0
-  for (i in 1:(length(x)-1)) {
-    a <- a + (x[i] + x[i+1])
+  for (i in 1:(length(x) - 1)) {
+    a <- a + (x[i] + x[i + 1])
   }
   return(log_dilution - (0.5 * d * a))
 }
@@ -19,7 +19,7 @@ get_logTCID <- function(x, d = 1, log_dilution) {
 #' @param total Number of technical replicates (samples for a given dilution)
 #' @export
 get_logTCID_SE <- function(x, d = 1, total) {
-  return(sqrt(sum(x * (1-x) / total)) * d)
+  return(sqrt(sum(x * (1 - x) / total)) * d)
 }
 
 #' TCID50 Computing Functions - TCID50 Level
@@ -74,8 +74,8 @@ get_TCID_CV <- function(x, d = 1, log_dilution, vol_inoculum, total) {
 #' @importFrom stats qnorm
 #' @export
 get_TCID_CI <- function(x, d = 1, log_dilution, vol_inoculum, total, alpha = 0.05) {
-  low <- get_logTCID(x, d, log_dilution) + (qnorm(1-(alpha/2), 0, 1) * get_logTCID_SE(x, d, total))
-  high <- get_logTCID(x, d, log_dilution) - (qnorm(1-(alpha/2), 0, 1) * get_logTCID_SE(x, d, total))
+  low <- get_logTCID(x, d, log_dilution) + (qnorm(1 - (alpha/2), 0, 1) * get_logTCID_SE(x, d, total))
+  high <- get_logTCID(x, d, log_dilution) - (qnorm(1 - (alpha/2), 0, 1) * get_logTCID_SE(x, d, total))
   return(list(lower_bound = 10^-low/vol_inoculum,
               upper_bound = 10^-high/vol_inoculum))
 }

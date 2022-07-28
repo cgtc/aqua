@@ -12,7 +12,7 @@
 #' @importFrom dplyr summarize mutate select
 #' @importFrom tidyr replace_na
 get_repeat <- function(model) {
-  grandMean <- fixef(model)[[1]]
+  grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))
   varianceFactors %>%
     mutate(var1 = replace_na(var1, "Residual")) %>%
@@ -38,7 +38,7 @@ get_repeat <- function(model) {
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select filter
 get_intermed_levels <- function(model) {
-  grandMean <- fixef(model)[[1]]
+  grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))
   varianceFactors %>%
     filter(grp != "Residual") %>%
@@ -61,7 +61,7 @@ get_intermed_levels <- function(model) {
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select
 get_intermed <- function(model) {
-  grandMean <- fixef(model)[[1]]
+  grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))
   varianceFactors %>%
     summarize(DEV = sqrt(sum(vcov))) %>%

@@ -1,7 +1,7 @@
 Package: aqua
 Type: Package
 Title: Assay Qualification Tools
-Version: 0.1.1
+Version: 0.1.2
 Author: Dragos Marginean <dragos.marginean@ct.catapult.org.uk>
 Maintainer: Dragos Marginean <dragos.marginean@ct.catapult.org.uk>
 Description: Tools that help with different assay qualification and

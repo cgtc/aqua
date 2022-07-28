@@ -8,7 +8,7 @@
 #' @export
 corr_structure <- function(object, num_timepoints, intercept_only = TRUE) {
   variance <- VarCorr(object)
-  if(intercept_only) {
+  if (intercept_only) {
     random_matrix <- as.matrix(object@pp$X[1:num_timepoints, 1])
     var_cor <- random_matrix %*% variance[[1]][1] %*% t(random_matrix) +
       diag(attr(variance, "sc")^2, nrow = num_timepoints, ncol = num_timepoints)
@@ -30,7 +30,7 @@ corr_structure <- function(object, num_timepoints, intercept_only = TRUE) {
 #' @examples
 #' rescale(1:10, 1, 100)
 #' @export
-rescale <- function(x, a = 0, b = 1, na.rm = T) ((b-a)*(x - min(x, na.rm = na.rm)) / ((max(x, na.rm = na.rm) - min(x, na.rm = na.rm)))) + a
+rescale <- function(x, a = 0, b = 1, na.rm = T) ((b - a)*(x - min(x, na.rm = na.rm)) / ((max(x, na.rm = na.rm) - min(x, na.rm = na.rm)))) + a
 
 #' Get pretty p-values (sometimes)
 #'
