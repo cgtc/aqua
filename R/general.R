@@ -30,7 +30,7 @@ corr_structure <- function(object, num_timepoints, intercept_only = TRUE) {
 #' @examples
 #' rescale(1:10, 1, 100)
 #' @export
-rescale <- function(x, a = 0, b = 1, na.rm = T) ((b - a)*(x - min(x, na.rm = na.rm)) / ((max(x, na.rm = na.rm) - min(x, na.rm = na.rm)))) + a
+rescale <- function(x, a = 0, b = 1, na.rm = T) ((b - a) * (x - min(x, na.rm = na.rm)) / ((max(x, na.rm = na.rm) - min(x, na.rm = na.rm)))) + a
 
 #' Get pretty p-values (sometimes)
 #'
@@ -52,6 +52,7 @@ pvl <- function(x, signif = 4) ifelse(abs(x) < 10^(0 - signif),
 #' @return A pretty kable output, to use in markdown reports; requires kableExtra
 #' @importFrom kableExtra kable_styling row_spec
 #' @importFrom knitr kable
+#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
 #' mtcars %>% kable() %>% kable_style()

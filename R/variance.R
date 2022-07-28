@@ -11,6 +11,7 @@
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select
 #' @importFrom tidyr replace_na
+#' @importFrom magrittr %>%
 get_repeat <- function(model) {
   grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))
@@ -35,6 +36,7 @@ get_repeat <- function(model) {
 #'
 #' @return The components for the intermediate precision (as percent RSD)
 #' @export
+#' @importFrom magrittr %>%
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select filter
 get_intermed_levels <- function(model) {
@@ -60,6 +62,7 @@ get_intermed_levels <- function(model) {
 #' @export
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select
+#' @importFrom magrittr %>%
 get_intermed <- function(model) {
   grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))

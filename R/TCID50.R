@@ -104,7 +104,7 @@ get_PI_ratio <- function(x, d = 1, log_dilution, vol_inoculum, vec_concentration
 #' @param alpha Significance threshold (0.05 alpha corresponds to 95\% CI)
 #' @export
 get_TCID_CI_PI <- function(x, d = 1, log_dilution, vol_inoculum, vec_concentration, total, alpha = 0.05) {
-  CI = get_TCID_CI(x, d, log_dilution, vol_inoculum, total, alpha)
+  CI <- get_TCID_CI(x, d, log_dilution, vol_inoculum, total, alpha)
   return(list(lower_bound = vec_concentration / CI[["lower_bound"]],
               upper_bound = vec_concentration / CI[["upper_bound"]]))
 }
