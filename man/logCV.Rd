@@ -4,7 +4,7 @@
 \alias{logCV}
 \title{Coefficient of Variation for Log-transformed Data}
 \usage{
-logCV(x, na.rm = F)
+logCV(x, na.rm = FALSE)
 }
 \arguments{
 \item{x}{A vector of log-normally distributed data}
@@ -14,7 +14,7 @@ logCV(x, na.rm = F)
 \description{
 A less known fact is that for log-transformed data you can't just take 100% * σ / μ and call it a day.
 This function implements the correct way of getting a CV when you apply it on log-transformed data.
-It does a method of moments based estimation of it, to check full maths and everything, read the paper published by Nelson W. in Applied Life Data Analysis. USA: John Wiley & Sons Inc; 2003.
+There's another version somewhere on the internets that has (log(10)^2 - var(x)) instead of just var(x). I'm not sure why
 }
 \examples{
 logCV(c(0.8, 0.9, 0.78))

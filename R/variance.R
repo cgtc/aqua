@@ -11,7 +11,7 @@
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select
 #' @importFrom tidyr replace_na
-#' @importFrom magrittr %>%
+#' @importFrom magrittr %>% set_names
 get_repeat <- function(model) {
   grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))
@@ -36,7 +36,7 @@ get_repeat <- function(model) {
 #'
 #' @return The components for the intermediate precision (as percent RSD)
 #' @export
-#' @importFrom magrittr %>%
+#' @importFrom magrittr %>% set_names
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select filter
 get_intermed_levels <- function(model) {
@@ -62,7 +62,7 @@ get_intermed_levels <- function(model) {
 #' @export
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select
-#' @importFrom magrittr %>%
+#' @importFrom magrittr %>% set_names
 get_intermed <- function(model) {
   grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))
@@ -106,7 +106,7 @@ sd.u <- function(x) {
 #'
 #' A less known fact is that for log-transformed data you can't just take 100% * σ / μ and call it a day.
 #' This function implements the correct way of getting a CV when you apply it on log-transformed data.
-#' It does a method of moments based estimation of it, to check full maths and everything, read the paper published by Nelson W. in Applied Life Data Analysis. USA: John Wiley & Sons Inc; 2003.
+#' There's another version somewhere on the internets that has (log(10)^2 - var(x)) instead of just var(x). I'm not sure why
 #'
 #' @param x A vector of log-normally distributed data
 #' @param na.rm Whether or not to ignore NAs
@@ -114,6 +114,6 @@ sd.u <- function(x) {
 #' @importFrom stats var
 #' @examples
 #' logCV(c(0.8, 0.9, 0.78))
-logCV <- function(x, na.rm = F) {
-  return(100 * sqrt(exp(log(10)^2 * var(x, na.rm = na.rm)) - 1))
+logCV <- function(x, na.rm = FALSE) {
+  return(100 * sqrt(exp(var(x, na.rm = na.rm)) - 1))
 }
