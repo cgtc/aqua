@@ -1,25 +1,24 @@
-Package: aqua
 Type: Package
+Package: aqua
 Title: Assay Qualification Tools
-Version: 0.1.2
+Version: 0.2.0
 Author: Dragos Marginean <dragos.marginean@ct.catapult.org.uk>
 Maintainer: Dragos Marginean <dragos.marginean@ct.catapult.org.uk>
 Description: Tools that help with different assay qualification and
     validation project analysis and reporting.
+License: GPL-2
 Depends:
     R (>= 3.4)
 Imports:
+    dplyr,
+    ggplot2,
+    kableExtra,
+    knitr,
     lme4,
     magrittr,
-    dplyr,
-    knitr,
-    kableExtra,
     Matrix,
     stats,
     tidyr
-Suggests:
-    tidyverse
-License: GPL-2
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.1
