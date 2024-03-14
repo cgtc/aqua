@@ -52,15 +52,14 @@ pvl <- function(x, signif = 4) ifelse(abs(x) < 10^(0 - signif),
 #' @return A pretty kable output, to use in markdown reports; requires kableExtra
 #' @importFrom kableExtra kable_styling row_spec
 #' @importFrom knitr kable
-#' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
-#' mtcars %>% kable() %>% kable_style()
+#' mtcars |> kable() |> kable_style()
 #' }
 #' @export
-kable_style <- function(x, full = F) x %>%
+kable_style <- function(x, full = F) x |>
   kable_styling(position = "center", full_width = full, fixed_thead = T,
-                bootstrap_options = c("striped", "hover", "compressed")) %>%
+                bootstrap_options = c("striped", "hover", "compressed")) |>
   row_spec(row = 0, align = "c", bold = T, hline_after = T,
            extra_css = "vertical-align: middle;")
 

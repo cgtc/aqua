@@ -19,6 +19,6 @@ Turn kable output into a pretty kable output
 }
 \examples{
 \dontrun{
-mtcars \%>\% kable() \%>\% kable_style()
+mtcars |> kable() |> kable_style()
 }
 }

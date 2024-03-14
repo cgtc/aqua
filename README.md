@@ -25,7 +25,6 @@ devtools::install_github("cgtc/aqua")    # fingers crossed
 
 ``` r
 library(aqua)
-#> Loading required package: magrittr
 
 sd(c(2,3,2))   # boring
 #> [1] 0.5773503
@@ -43,69 +42,40 @@ library(lme4)
 
 funky_model <- lmer(total.fruits ~ 1 + (1|amd) + (1|status), data = Arabidopsis)
 
-get_intermed_levels(funky_model) %>%
-  knitr::kable(escape = F) %>%
+get_intermed_levels(funky_model) |>
+  knitr::kable(escape = F) |>
   kable_style()
 ```
 
-<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
-
+<table class="table table-striped table-hover" style="color: black; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
-
 <tr>
-
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;text-align: center;vertical-align: middle;">
-
 Error term
-
 </th>
-
 <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;text-align: center;vertical-align: middle;">
-
 CV %
-
 </th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr>
-
 <td style="text-align:left;">
-
 status
-
 </td>
-
 <td style="text-align:right;">
-
 18.836883
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 amd
-
 </td>
-
 <td style="text-align:right;">
-
 5.834408
-
 </td>
-
 </tr>
-
 </tbody>
-
 </table>
 
 Boom. Clearly the contribution of `amd` and `status` to variations in
@@ -119,9 +89,9 @@ like `1 + (1|Lab/Operator/Day) + (1|SampleType)` or whatever your assay
 design structure is and fire it up.
 
 You can also do the whole TCID50 assay calculations. There’s a lot of
-functions for that that tend to even work\! Does anyone use TCID50
+functions for that that tend to even work! Does anyone use TCID50
 anymore? Hello?
 
 ## Version
 
-Currently 0.1 MEGA ALPHA
+Currently 0.2 ALPHA

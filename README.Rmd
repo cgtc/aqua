@@ -50,8 +50,8 @@ library(lme4)
 
 funky_model <- lmer(total.fruits ~ 1 + (1|amd) + (1|status), data = Arabidopsis)
 
-get_intermed_levels(funky_model) %>%
-  knitr::kable(escape = F) %>%
+get_intermed_levels(funky_model) |>
+  knitr::kable(escape = F) |>
   kable_style()
 
 ```
@@ -64,4 +64,4 @@ You can also do the whole TCID50 assay calculations. There's a lot of functions 
 
 ## Version
 
-Currently 0.1 MEGA ALPHA
+Currently 0.2 ALPHA

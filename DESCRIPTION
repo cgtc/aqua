@@ -8,14 +8,13 @@ Description: Tools that help with different assay qualification and
     validation project analysis and reporting.
 License: GPL-2
 Depends:
-    R (>= 3.4)
+    R (>= 4.1)
 Imports:
     dplyr,
     ggplot2,
     kableExtra,
     knitr,
     lme4,
-    magrittr,
     Matrix,
     stats,
     tidyr

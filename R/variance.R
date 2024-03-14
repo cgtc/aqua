@@ -11,18 +11,17 @@
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select
 #' @importFrom tidyr replace_na
-#' @importFrom magrittr %>% set_names
 get_repeat <- function(model) {
   grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))
-  varianceFactors %>%
-    mutate(var1 = replace_na(var1, "Residual")) %>%
-    filter(var1 == "Residual") %>%
-    summarize(DEV = sdcor) %>%
-    mutate(CV = (DEV/grandMean * 100)) %>%
-    mutate(var1 = c("Repeatability")) %>%
-    select(var1, CV) %>%
-    set_names(c("Imprecision<br>Level", "CV %")) -> ret
+  ret <- varianceFactors |>
+    mutate(var1 = replace_na(var1, "Residual")) |>
+    filter(var1 == "Residual") |>
+    summarize(DEV = sdcor) |>
+    mutate(CV = (DEV/grandMean * 100)) |>
+    mutate(var1 = c("Repeatability")) |>
+    select(var1, CV)
+  colnames(ret) <- c("Imprecision<br>Level", "CV %")
   return(ret)
 }
 
@@ -36,18 +35,17 @@ get_repeat <- function(model) {
 #'
 #' @return The components for the intermediate precision (as percent RSD)
 #' @export
-#' @importFrom magrittr %>% set_names
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select filter
 get_intermed_levels <- function(model) {
   grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))
-  varianceFactors %>%
-    filter(grp != "Residual") %>%
-    mutate(CV = sdcor/c(rep(grandMean, nrow(varianceFactors) - 1)) * 100) %>%
-    select(-var1, -vcov) %>%
-    select(grp, CV) %>%
-    set_names(c("Error term", "CV %")) -> ret
+  ret <- varianceFactors |>
+    filter(grp != "Residual") |>
+    mutate(CV = sdcor/c(rep(grandMean, nrow(varianceFactors) - 1)) * 100) |>
+    select(-var1, -vcov) |>
+    select(grp, CV)
+  colnames(ret) <- c("Error term", "CV %")
   return(ret)
 }
 
@@ -62,16 +60,15 @@ get_intermed_levels <- function(model) {
 #' @export
 #' @importFrom lme4 fixef VarCorr
 #' @importFrom dplyr summarize mutate select
-#' @importFrom magrittr %>% set_names
 get_intermed <- function(model) {
   grandMean <- abs(fixef(model)[[1]])
   varianceFactors <- as.data.frame(VarCorr(model))
-  varianceFactors %>%
-    summarize(DEV = sqrt(sum(vcov))) %>%
-    mutate(CV = DEV/grandMean * 100) %>%
-    mutate(var1 = c("Intermediate Precision")) %>%
-    select(var1, CV) %>%
-    set_names(c("Imprecision<br>Level", "CV %")) -> ret
+  ret <- varianceFactors |>
+    summarize(DEV = sqrt(sum(vcov))) |>
+    mutate(CV = DEV/grandMean * 100) |>
+    mutate(var1 = c("Intermediate Precision")) |>
+    select(var1, CV)
+  colnames(ret) <- c("Imprecision<br>Level", "CV %")
   return(ret)
 }
 
