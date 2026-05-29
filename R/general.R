@@ -32,7 +32,7 @@ corr_structure <- function(object, num_timepoints, intercept_only = TRUE) {
 #' @export
 rescale <- function(x, a = 0, b = 1, na.rm = T) ((b - a) * (x - min(x, na.rm = na.rm)) / ((max(x, na.rm = na.rm) - min(x, na.rm = na.rm)))) + a
 
-#' Get pretty p-values (sometimes)
+#' Get pretty p-values (sometimes). A worse alternative for scales::pvalue. Use that instead.
 #'
 #' @param x A vector of p-values
 #' @param signif Significant digits (default = 4) to keep

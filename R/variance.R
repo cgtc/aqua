@@ -114,3 +114,31 @@ sd.u <- function(x) {
 logCV <- function(x, na.rm = FALSE) {
   return(100 * sqrt(exp(var(x, na.rm = na.rm)) - 1))
 }
+
+#' Internally calculates a limit based on given data and perhaps variance data
+#'
+#' @param data The data to use
+#' @param variance_data The variance data to use. If NULL, the data is used instead
+#' @param limit The limit to calculate (e.g. 3.3 for LOD, 10 for LOQ)
+#' @param .corrected Whether to use the unbiased standard deviation or not
+#'
+#' @returns The calculated limit
+#' @export
+#'
+#' @examples
+#' calc_limit(rnorm(10, 0, 4))
+#' calc_limit(rnorm(10, 0, 4), .corrected = TRUE)
+#' calc_limit(rnorm(10, 0, 4), rnorm(10, 0, 4))
+calc_limit <- function(data, variance_data = NULL, limit = 3.3, .corrected = FALSE) {
+  m0 <- mean(data, na.rm = TRUE)
+  vdata <- variance_data
+  if (is.null(variance_data)) {
+    vdata <- data
+  }
+  if (.corrected) {
+    s0 <- sd.u(vdata)
+  } else {
+    s0 <- sd(vdata, na.rm = TRUE)
+  }
+  return(m0 + limit * s0)
+}

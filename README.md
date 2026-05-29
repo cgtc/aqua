@@ -47,35 +47,58 @@ get_intermed_levels(funky_model) |>
   kable_style()
 ```
 
-<table class="table table-striped table-hover" style="color: black; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+
 <thead>
+
 <tr>
+
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;text-align: center;vertical-align: middle;">
+
 Error term
 </th>
+
 <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;text-align: center;vertical-align: middle;">
+
 CV %
 </th>
+
 </tr>
+
 </thead>
+
 <tbody>
+
 <tr>
+
 <td style="text-align:left;">
+
 status
 </td>
+
 <td style="text-align:right;">
+
 18.836883
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 amd
 </td>
+
 <td style="text-align:right;">
+
 5.834408
 </td>
+
 </tr>
+
 </tbody>
+
 </table>
 
 Boom. Clearly the contribution of `amd` and `status` to variations in

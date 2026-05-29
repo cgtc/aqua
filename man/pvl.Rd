@@ -2,7 +2,7 @@
 % Please edit documentation in R/general.R
 \name{pvl}
 \alias{pvl}
-\title{Get pretty p-values (sometimes)}
+\title{Get pretty p-values (sometimes). A worse alternative for scales::pvalue. Use that instead.}
 \usage{
 pvl(x, signif = 4)
 }
@@ -15,7 +15,7 @@ pvl(x, signif = 4)
 x, if x > x^(-signif), otherwise "<1^(-signif)" in non-scientific notation
 }
 \description{
-Get pretty p-values (sometimes)
+Get pretty p-values (sometimes). A worse alternative for scales::pvalue. Use that instead.
 }
 \examples{
 pvl(c(0.0000003, 0.06), 2) # returns "<0.01" "0.06"

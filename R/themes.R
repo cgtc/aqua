@@ -211,7 +211,7 @@ theme_catapult <- function(..., angle_x = 0, angle_y = 0, legend.position = "bot
       legend.title = ggplot2::element_text(size = 14 + text_size_offset, face = "bold", color = "black", hjust = 0.5, vjust = 1),
       legend.text = ggplot2::element_text(size = 13 + text_size_offset),
       strip.text = ggplot2::element_text(size = 14 + text_size_offset, face = "bold"),
-      panel.grid.major = ggplot2::element_line(size = 1/3, color = "#DADADA", linetype = "dashed"),
+      panel.grid.major = ggplot2::element_line(linewidth = 1/3, color = "#DADADA", linetype = "dashed"),
       panel.grid.minor = ggplot2::element_blank(),
       legend.position = legend.position,
       plot.title = ggplot2::element_text(size = 16 + text_size_offset, face = "bold"),
